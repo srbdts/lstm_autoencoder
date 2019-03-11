@@ -64,10 +64,8 @@ for i in range(0,len(index_to_word)):
     try:
         embedding_matrix[i] = m.wv[index_to_word[i]]
     except KeyError:
-        print("didn't find %s" % index_to_word[i])
         embedding_matrix[i] = oov
-for i in range(4):
-    print(index_to_word[i])
+
 embedding_matrix[word_to_index["SOS"]] = startseq
 embedding_matrix[word_to_index["EOS"]] = endseq
 embedding_matrix[word_to_index["OOV"]] = oov
